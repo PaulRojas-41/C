@@ -1,14 +1,13 @@
-GCC_FLAG = gcc
-C_FLAGS = -Wall -g -Wextra
-OBJS= test.o
-C_FILES= test.c
-EXE = test
+GCC_FLAGS = gcc -ggdb
+COMPILER_FLAGS = -Wall -g -Wextra
+OBJS += x1_memleak.o
+EXE = x1_memleak
 
 $(EXE): $(OBJS)
-	$(GCC_FLAG) $(C_FLAGS) -o $@ $(OBJS)
+	$(GCC_FLAGS) $(COMPILER_FLAGS) -o $@ $(OBJS) 
 
 %.o: %.c
-	$(GCC_FLAG) $(C_FLAGS) -c $< 
+	$(GCC_FLAGS) $(COMPILER_FLAGS) -c $< 
 
 test_2:
 	@echo '[exe....]' $(EXE)
