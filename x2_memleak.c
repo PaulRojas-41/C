@@ -1,4 +1,5 @@
-/* Memory Management */
+/* [dev_ex_dma] Uses cases for null mem or small amount of mem */
+
 #include <stdio.h>
 #include <stdlib.h>
 
