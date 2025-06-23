@@ -2,8 +2,8 @@
 
 GCC_FLAGS = gcc -g -m64 
 COMPILER_FLAGS = -Wall -g -Wextra
-OBJS = x3_pointers.o
-EXE = x3_pointers
+OBJS = x4_strings_and_funcs.o
+EXE = x4_strings_and_funcs
 
 $(EXE): $(OBJS)
 	$(GCC_FLAGS) $(COMPILER_FLAGS) -o $@ $(OBJS)

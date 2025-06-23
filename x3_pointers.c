@@ -6,11 +6,14 @@
 int main() 
 {
     int test[3] = {3,5,7};
-    int *ptr = test; 
-    int *ptr_2 = &test[0]; 
+    int *ptr = test; /* test represents the address of the first element of the array => test[0]*/
+    int *ptr_2 = &test[0]; /* Another way to initialize the pointer with the address of the first element of the array */
 
     /* print addresses of each element of the array */
     for(int i = 0; i < 3; i++) { printf("%p\n",&test[i]);}
+
+    /* Another syntax to print the addresses */
+    for(int i = 0; i < 3; i++) { printf("Another style: %p\n",test+i);}
 
     /* print pointer's pointing to first arrays's element */
     printf("\nInit value ptr1: %p",ptr); 
