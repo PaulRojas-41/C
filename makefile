@@ -1,15 +1,20 @@
 #For more reference regarding gdb and other useful debug flags: https://gcc.gnu.org/onlinedocs/gcc/Debugging-Options.html
 
-GCC_FLAGS = gcc -g -m64 
+GCC_FLAGS = gcc -m64 
 COMPILER_FLAGS = -Wall -g -Wextra
-OBJS = x4_strings_and_funcs.o
-EXE = x4_strings_and_funcs
+OBJS += \
+	 x5_headers.o\
+	 strcpy_lib.o
+	 
+EXE = x5_headers
 
+#linking phase of all the .c files to machine code done (put all together)
 $(EXE): $(OBJS)
 	$(GCC_FLAGS) $(COMPILER_FLAGS) -o $@ $(OBJS)
 
+#compiles to machine code without linking 
 %.o: %.c
-	$(GCC_FLAGS) $(COMPILER_FLAGS) -c $< 
+	$(GCC_FLAGS) -c $(COMPILER_FLAGS) $< 
 
 clean: 
 	@rm -rf *.o *.exe 

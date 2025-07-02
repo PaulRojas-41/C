@@ -1,4 +1,4 @@
-/* [dev_ex_strings_and_funcs] strings and memory play-around within function's context */
+/* [x4_x4_strng_funcs_w_heapmem] strings management and memory play-around within function's context using heap memory space  */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,11 +7,10 @@
 
 /* Marco definition */
 
-#define SIZE 30u
-
 /* User defined objects */
 
 /* Function prototypes */
+
 void printString(char buffer_name[]);
 char *retHeapInfo(char *data);
 char *getString(char *string); /* test return a pointer to a string */
@@ -43,7 +42,7 @@ char *retHeapInfo(char *data)
         do{   
             *(var_heapBuffer + j) = data[j];
             j++;
-        }while(data[j] != '\0'); /* ERROR: loc_buffer[j] != NULL */
+        }while(data[j] != '\0'); /* ERROR_INJ */
     }
     else{ printf("\nInvalid string"); }
 
