@@ -1,4 +1,4 @@
-/*[dev_lib_strcpy] */
+/*[dev_lib_strcpy] Stringcpy lib example */
 #include <stdio.h>
 #include <string.h> 
 #include "strcpy_lib.h" /* [1st ref]: my_strcpy(char *str1, char *str2); */

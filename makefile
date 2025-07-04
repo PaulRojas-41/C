@@ -2,11 +2,11 @@
 
 GCC_FLAGS = gcc -m64 
 COMPILER_FLAGS = -Wall -g -Wextra
-OBJS += \
-	 x5_headers.o\
-	 strcpy_lib.o
-	 
-EXE = x5_headers
+OBJS +=\
+	x6_bitw_bitcount.o \
+	strcpy_lib.o
+
+EXE = x6_bitw_bitcount
 
 #linking phase of all the .c files to machine code done (put all together)
 $(EXE): $(OBJS)
@@ -14,7 +14,7 @@ $(EXE): $(OBJS)
 
 #compiles to machine code without linking 
 %.o: %.c
-	$(GCC_FLAGS) -c $(COMPILER_FLAGS) $< 
+	$(GCC_FLAGS) $(COMPILER_FLAGS) -c $< 
 
 clean: 
 	@rm -rf *.o *.exe 

@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "strcpy_lib.h": "c",
-        "mytest_lib.h": "c"
+        "mytest_lib.h": "c",
+        "bitwise_lib.h": "c" 
     }
 }
