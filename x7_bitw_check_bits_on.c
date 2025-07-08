@@ -17,13 +17,13 @@ int main()
 
     while(num)
     {   
-        result = CHECK_BIT(num); /* 11110000 & 1 = false*/
-
+        result = CHECK_BIT_ON(num); /* 11110000 & 1 = false*/
+        
         if(result)
         {
             counter++;
         }
-        num = SHIFT2RIGHT(num); /* 0111 1000 */
+        num = SHIFT2RIGHT(num);
     }
     printf("\nBits set of the entered number:\n%d",counter);
 

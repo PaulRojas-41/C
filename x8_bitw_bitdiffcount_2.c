@@ -1,4 +1,4 @@
-/* [dev_ex_bitwise_] Example developed for check bit's states between 2 numbers */
+/* [dev_ex_bitdiff_count] 2nd version of count bit diff between 2 numbers */
 
 #include <stdio.h>
 #include <conio.h>
@@ -13,6 +13,7 @@ int main(void)
     int num2;
     int counter = 0;
     int getBits;
+    int result;
      
     printf("Enter 1st number:\n");
     scanf("%d", &num1);
@@ -24,10 +25,15 @@ int main(void)
 
     while(getBits)
     {
-        getBits &= (getBits - 1);
-        counter++;
+        result = CHECK_BIT_ON(getBits);
+
+        if(result)
+        {
+            counter++;
+        }
+        getBits = SHIFT2RIGHT(getBits);
     }
-    printf("\nBits of difference between 2 numbers :%d",counter);
+    printf("\nBits of difference between 2 entered numbers :%d",counter);
 
     return 0;
 }
