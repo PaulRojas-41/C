@@ -17,7 +17,7 @@ int main()
 
     while(num)
     {   
-        result = CHECK_BIT_ON(num); /* 11110000 & 1 = false*/
+        result = CHECK_BIT_ON(num);
         
         if(result)
         {

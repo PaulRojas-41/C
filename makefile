@@ -3,10 +3,10 @@
 GCC_FLAGS = gcc -m64 
 COMPILER_FLAGS = -Wall -g -Wextra
 OBJS +=\
-	x8_bitw_bitdiffcount_2.o \
+	x9_endianess.o \
 	strcpy_lib.o
 
-EXE = x8_bitw_bitdiffcount_2
+EXE = x9_endianess
 
 #linking phase of all the .c files to machine code done (put all together)
 $(EXE): $(OBJS)
