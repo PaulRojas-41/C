@@ -3,10 +3,10 @@
 GCC_FLAGS = gcc -m64 
 COMPILER_FLAGS = -Wall -g -Wextra
 OBJS +=\
-	x9_endianess.o \
+	x10_dma_sum.o \
 	strcpy_lib.o
 
-EXE = x9_endianess
+EXE = x10_dma_sum
 
 #linking phase of all the .c files to machine code done (put all together)
 $(EXE): $(OBJS)
