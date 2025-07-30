@@ -27,9 +27,9 @@ int main(void)
     for(int i = 0; i < size; i++)
     {
         printf("\nInsert the number:");
-        scanf("%d",&number);
+        scanf("%d",d_array + i);
 
-        *(d_array + i) = number; 
+        // *(d_array + i) = number; 
         total += d_array[i];
 
     }
