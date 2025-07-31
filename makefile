@@ -3,10 +3,10 @@
 GCC_FLAGS = gcc -m64 
 COMPILER_FLAGS = -Wall -g -Wextra
 OBJS +=\
-	x11_reverse_array.o \
+	x13_diff_line_print.o \
 	strcpy_lib.o
 
-EXE = x11_reverse_array
+EXE = x13_diff_line_print
 
 #linking phase of all the .c files to machine code done (put all together)
 $(EXE): $(OBJS)
