@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
-#include "strcpy_lib.h" /* void my_strcpy(char *str1, char *str2); */
+#include "strings_lib.h" /* void my_strcpy(char *str1, char *str2); */
 #include "mytest_lib.h" /* my_strcpy not be pasted here */
 
 /* Macro defined */

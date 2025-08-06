@@ -1,12 +1,13 @@
 #For more reference regarding gdb and other useful debug flags: https://gcc.gnu.org/onlinedocs/gcc/Debugging-Options.html
 
-GCC_FLAGS = gcc -m64 
+GCC_FLAGS = gcc -m64
 COMPILER_FLAGS = -Wall -g -Wextra
 OBJS +=\
-	x13_diff_line_print.o \
-	strcpy_lib.o
+	x11_reverse_array_and_string.o \
+	strings_lib.o
 
-EXE = x13_diff_line_print
+EXE = x11_reverse_array_and_string
+INCLUDES = -I"C:\msys64\ucrt64\include"
 
 #linking phase of all the .c files to machine code done (put all together)
 $(EXE): $(OBJS)
@@ -14,7 +15,7 @@ $(EXE): $(OBJS)
 
 #compiles to machine code without linking 
 %.o: %.c
-	$(GCC_FLAGS) $(COMPILER_FLAGS) -c $< 
+	$(GCC_FLAGS) $(COMPILER_FLAGS) -c $< $(INCLUDES)
 
 clean: 
 	@rm -rf *.o *.exe 

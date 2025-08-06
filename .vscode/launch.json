@@ -34,9 +34,9 @@
             "name": "(gdb) Attach",
             "type": "cppdbg",
             "request": "attach",
-            "program": "enter program name, for example ${workspaceFolder}/dma_ex1.exe",
+            "program": "enter program name, for example ${workspaceFolder}/x11_reverse_array_and_string.exe",
             "MIMode": "gdb",
-            "miDebuggerPath": "C:/Users/p.tapiarojas/AppData/Local/Programs/gcc-arm-none-eabi-10.3-2021.10-win32/bin/arm-none-eabi-gdb.exe",
+            "miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
