@@ -34,7 +34,7 @@
             "name": "(gdb) Attach",
             "type": "cppdbg",
             "request": "attach",
-            "program": "enter program name, for example ${workspaceFolder}/x11_reverse_array_and_string.exe",
+            "program": "enter program name, for example ${workspaceFolder}/x13_diff_line_print.exe",
             "MIMode": "gdb",
             "miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe",
             "setupCommands": [

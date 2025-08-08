@@ -3,10 +3,10 @@
 GCC_FLAGS = gcc -m64
 COMPILER_FLAGS = -Wall -g -Wextra
 OBJS +=\
-	x11_reverse_array_and_string.o \
+	x13_diff_line_print.o \
 	strings_lib.o
 
-EXE = x11_reverse_array_and_string
+EXE = x13_diff_line_print
 INCLUDES = -I"C:\msys64\ucrt64\include"
 
 #linking phase of all the .c files to machine code done (put all together)

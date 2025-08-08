@@ -15,6 +15,7 @@ int main()
 {
     int numbers[NUM];
     char string[100] = {"Hola, bienvenido"};
+    char *strings[] = {};
 
     printf("Numbers:\n");
 
@@ -23,7 +24,7 @@ int main()
 
     reverse_array(numbers, NUM);
 
-    reverse_string(string);
+    reverse_fixed_string(string);
 
     return 0; 
 }

@@ -3,6 +3,6 @@
 
 
 extern void my_strcpy(char *str1, char *str2);
-extern void reverse_string(char *string);
+extern void reverse_fixed_string(char *string);
 
 #endif

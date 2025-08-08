@@ -15,11 +15,9 @@ void my_strcpy(char *str1, char *str2)
     }
 }
 
-void reverse_string(char *string)
+void reverse_fixed_string(char *string)
 {
     int s_len = strlen(string);
-    
-    printf("\nString to reversed: %s\n", string);
     
     for(int j = s_len - 1; j >= 0; j--)
     {
