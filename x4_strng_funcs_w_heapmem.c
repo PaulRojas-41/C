@@ -1,4 +1,4 @@
-/* [x4_x4_strng_funcs_w_heapmem] strings management and memory play-around within function's context using heap memory space */
+/* [x4_strng_funcs_w_heapmem] strings management and memory play-around within function's context using heap memory space */
 
 #include <stdio.h>
 #include <stdlib.h>
