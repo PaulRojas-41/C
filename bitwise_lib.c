@@ -6,13 +6,15 @@
 extern void print_bit(size_t const x, void const *ptr)
 {
     unsigned char *local_ptr = (unsigned char *)ptr;
-    int mask;
+    int mask, i, j;
+    i = x -1;
+    mask = local_ptr[i];
 
-    for(int i = x - 1; i >= 0; i--) /* for each byte */
+    for(i = x - 1; i >= 0; i--) /* for each byte */
     {
-        for(int j = 7; j >= 0; j--) /* read each bit */
+        for(j = 7; j >= 0; j--) /* read each bit */
         {
-            mask = ((local_ptr[i] >> j) & 1) ? printf("%c",  '1') : printf("%c",  '0'); /* right shift and AND with 1 */
+            mask = (SHIFT2RIGHT(local_ptr[i],j) & 1) ? printf("%c",  '1') : printf("%c",  '0'); /* right shift and AND with 1 */
         }
     }
 }

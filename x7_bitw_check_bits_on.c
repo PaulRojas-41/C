@@ -23,7 +23,9 @@ int main()
         {
             counter++;
         }
-        num = SHIFT2RIGHT(num);
+        num = num >> 1;
+
+        printf("\nShifted num value:%d",num);
     }
     printf("\nBits set of the entered number:\n%d",counter);
 
