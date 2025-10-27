@@ -1,4 +1,5 @@
-/* [dev_ex_bit_counter_2] Bit counter ex2 for any type of data */
+/* [dev_ex_print_bits_bigendian] Print bits in big endian format */
+
 #include <stdio.h>
 #include <stdint.h>
 #include "bitwise_lib.h"
@@ -21,8 +22,12 @@ extern void print_bit(size_t const x, void const *ptr)
 
 int main(void)
 {
-    int value = 0xAB110010; // 0001 1101
+    int value = 0xBA110010;
+    int tmp = U32_BIG_ENDIAN(value);
+
     print_bit(sizeof(value), &value);
+    printf("\n");
+    print_bit(sizeof(value), &tmp);
 
     return 0;
 }
