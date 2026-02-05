@@ -20,14 +20,17 @@ extern void print_bit(size_t const x, void const *ptr)
     }
 }
 
+/* TEST API
 int main(void)
 {
     int value = 0xBA110010;
     int tmp = U32_BIG_ENDIAN(value);
+    uint8_t buffer[] = {"Hola"};
 
     print_bit(sizeof(value), &value);
     printf("\n");
     print_bit(sizeof(value), &tmp);
+    printf("\nBuffer size: %d",sizeof(buffer));
 
     return 0;
-}
+}*/

@@ -3,10 +3,11 @@
 GCC_FLAGS = gcc -m64
 COMPILER_FLAGS = -Wall -g -Wextra
 OBJS +=\
-	bitwise_lib.o \
-	strings_lib.o
+	x15_const_volatile.o \
+	strings_lib.o \
+	bitwise_lib.o
 
-EXE = bitwise_lib
+EXE = x15_const_volatile
 INCLUDES = -I"C:\msys64\ucrt64\include"
 
 #linking phase of all the .c files to machine code done (put all together)
