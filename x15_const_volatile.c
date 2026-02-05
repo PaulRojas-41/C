@@ -1,4 +1,4 @@
-/* [dev_ex15_pragma_structs_bitfields_unions] Struct padding, bit field test and union test */
+/* [dev_ex15_pragma_structs_bitfields_unions] Union test */
 
 #include <stdio.h>
 #include <stdint.h>
@@ -20,16 +20,19 @@ struct datapkt{
     uint8_t flag1:1; 
 };
 
-struct Packet {
-    uint32_t crc : 2;
-    uint32_t status: 1;
-    uint32_t payload: 12;
-    uint32_t bat: 3;
-    uint32_t sensor: 3;
-    uint32_t longaddr: 8;
-    uint32_t shortaddr: 2;
-    uint32_t addrmode: 1;
-};
+typedef union Packet{
+    uint32_t Packetvalue;
+    struct{
+        uint32_t crc : 2;
+        uint32_t status: 1;
+        uint32_t payload: 12;
+        uint32_t bat: 3;
+        uint32_t sensor: 3;
+        uint32_t longaddr: 8;
+        uint32_t shortaddr: 2;
+        uint32_t addrmode: 1;
+    }bits;
+}Packet_t;
 
 struct CarModel{
     uint32_t carModel;
@@ -63,9 +66,11 @@ int main(void)
 
     /* access to packet bitfields */
     uint32_t packet_frame = 34; /* 0010 0000 */
-    uint32_t packet_frame2 = 32;
     struct datapkt myPacket;
-    struct Packet  myPacket2;
+
+    Packet_t  myPacket3;
+    myPacket3.Packetvalue = 32;
+
     
     myPacket.crc = (uint8_t)(packet_frame & 0xF); /* 0000 */
     myPacket.flag2 = (uint8_t)((packet_frame >> 4) & 0x3); /* 00 0000 */
@@ -75,14 +80,16 @@ int main(void)
     myPacket.Header= (uint8_t)((packet_frame >> 26)& 0x0F); /* 0000 0000 00000000 00000000 00 0000 */
     myPacket.flag1 = (uint8_t)((packet_frame >> 30)& 0x01); /* 0 0000 0000 00000000 00000000 00 0000 */
 
-    myPacket2.crc = (uint8_t)(packet_frame2 & 0x03); /* 00*/
-    myPacket2.status = (uint8_t)((packet_frame2 >> 2) & 0x01); /* 0 00*/
-    myPacket2.payload= (uint8_t)((packet_frame2 >> 3) & 0xFFF); /* 000000000000 0 00 */
-    myPacket2.bat    = (uint8_t)((packet_frame2 >> 15)& 0x07); /* 000 000000000000 0 00 */
-    myPacket2.sensor = (uint8_t)((packet_frame2 >> 18)& 0x07); /* 000 000 000000000000 0 00 */
-    myPacket2.longaddr=(uint8_t)((packet_frame2 >> 21)& 0xFF); /* 00000000 000 000 000000000000 0 00 */
-    myPacket2.shortaddr=(uint8_t)((packet_frame2>> 29)& 0x03); /* 00 00000000 000 000 000000000000 0 00 */
-    myPacket2.addrmode = (uint8_t)((packet_frame2>>31)&0x01); /* 0 00 00000000 000 000 000000000000 0 00 */
+    /* Access by hand optimized with union: test with print each bit in line 103 
+
+    myPacket2.crc = (uint8_t)(packet_frame2 & 0x03); /* 00
+    myPacket2.status = (uint8_t)((packet_frame2 >> 2) & 0x01); /* 0 00
+    myPacket2.payload= (uint8_t)((packet_frame2 >> 3) & 0xFFF); /* 000000000000 0 00 
+    myPacket2.bat    = (uint8_t)((packet_frame2 >> 15)& 0x07); /* 000 000000000000 0 00
+    myPacket2.sensor = (uint8_t)((packet_frame2 >> 18)& 0x07); /* 000 000 000000000000 0 00 
+    myPacket2.longaddr=(uint8_t)((packet_frame2 >> 21)& 0xFF); /* 00000000 000 000 000000000000 0 00 
+    myPacket2.shortaddr=(uint8_t)((packet_frame2>> 29)& 0x03); /* 00 00000000 000 000 000000000000 0 00 
+    myPacket2.addrmode = (uint8_t)((packet_frame2>>31)&0x01); /* 0 00 00000000 000 000 000000000000 0 00 
 
     printf("crc: %x\n",myPacket2.crc);
     printf("status: %x\n",myPacket2.status);
@@ -93,7 +100,8 @@ int main(void)
     printf("shortaddr: %x\n",myPacket2.shortaddr);
     printf("addrmode: %x\n",myPacket2.addrmode);
 
-    print_bit(sizeof(myPacket2),&myPacket2);
+    print_bit(sizeof(myPacket2),&myPacket2);*/
+    print_bit(sizeof(myPacket3),&myPacket3);
 
     return 0;
 }
