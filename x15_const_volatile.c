@@ -50,6 +50,14 @@ typedef struct{
     int num;
 }userD_t;
 
+struct testReg{
+ unsigned int bit0:1;
+ unsigned int bit1:1;
+ unsigned int bit2:1;
+ unsigned int bit3:1;
+};
+
+
 int main(void) 
 {
     printf("Mem in bytes of struct: %lld",sizeof(struct CarModel)); /* 16 bytes will print */
@@ -71,7 +79,6 @@ int main(void)
     Packet_t  myPacket3;
     myPacket3.Packetvalue = 32;
 
-    
     myPacket.crc = (uint8_t)(packet_frame & 0xF); /* 0000 */
     myPacket.flag2 = (uint8_t)((packet_frame >> 4) & 0x3); /* 00 0000 */
     myPacket.data2 = (uint8_t)((packet_frame >> 6) & 0xFF); /* 00000000 00 0000 */
@@ -80,28 +87,16 @@ int main(void)
     myPacket.Header= (uint8_t)((packet_frame >> 26)& 0x0F); /* 0000 0000 00000000 00000000 00 0000 */
     myPacket.flag1 = (uint8_t)((packet_frame >> 30)& 0x01); /* 0 0000 0000 00000000 00000000 00 0000 */
 
-    /* Access by hand optimized with union: test with print each bit in line 103 
 
-    myPacket2.crc = (uint8_t)(packet_frame2 & 0x03); /* 00
-    myPacket2.status = (uint8_t)((packet_frame2 >> 2) & 0x01); /* 0 00
-    myPacket2.payload= (uint8_t)((packet_frame2 >> 3) & 0xFFF); /* 000000000000 0 00 
-    myPacket2.bat    = (uint8_t)((packet_frame2 >> 15)& 0x07); /* 000 000000000000 0 00
-    myPacket2.sensor = (uint8_t)((packet_frame2 >> 18)& 0x07); /* 000 000 000000000000 0 00 
-    myPacket2.longaddr=(uint8_t)((packet_frame2 >> 21)& 0xFF); /* 00000000 000 000 000000000000 0 00 
-    myPacket2.shortaddr=(uint8_t)((packet_frame2>> 29)& 0x03); /* 00 00000000 000 000 000000000000 0 00 
-    myPacket2.addrmode = (uint8_t)((packet_frame2>>31)&0x01); /* 0 00 00000000 000 000 000000000000 0 00 
-
-    printf("crc: %x\n",myPacket2.crc);
-    printf("status: %x\n",myPacket2.status);
-    printf("payload: %x\n",myPacket2.payload);
-    printf("bat: %x\n",myPacket2.bat);
-    printf("sensor: %x\n",myPacket2.sensor);
-    printf("longaddr: %x\n",myPacket2.longaddr);
-    printf("shortaddr: %x\n",myPacket2.shortaddr);
-    printf("addrmode: %x\n",myPacket2.addrmode);
-
-    print_bit(sizeof(myPacket2),&myPacket2);*/
     print_bit(sizeof(myPacket3),&myPacket3);
+
+    struct testReg reg;
+
+    reg.bit0 =1;
+    reg.bit1 = reg.bit0;
+    reg.bit2 = !reg.bit1;
+    reg.bit3 = reg.bit2;
+    
 
     return 0;
 }
