@@ -32,20 +32,38 @@ int main()
             printf("%c", *(get_string + j)); 
     }
 
-    /* Array of pointers section */
+    /* memory practice section */
+    uint32_t buffer_test_3[] = {0xAACCDDEE,0xEEDDCCAA, 0xDDDDCCAA, 0xAADDEECC};
+    uint32_t *ptr_test_3 = buffer_test_3;
 
-    uint32_t u32_data_format = 0x08008000;
-    volatile uint32_t *u32_ptr_data = (volatile uint32_t *)u32_data_format; // address to write
-    uint32_t array[] = {0xCC, 0xEE, 0xAA};
+        
+    for(int i = 0; i < 4; i++)
+        printf("\n%p", &buffer_test_3[i]);
 
-    printf("\n%x", u32_ptr_data);
+    /* moving through addresses to point to */
+    printf("\n%p", &ptr_test_3[3]);
 
-    
-    *u32_ptr_data = (uint32_t)array[0]; //we write in "0x08008000"
+    //syntax error: printf("\n%d", *(ptr_test_3[3]));
+    printf("\n%x", *(ptr_test_3 + 0));
 
-    printf("\n%x", u32_ptr_data); //address = 0x8008000
-    printf("\n%x", *u32_ptr_data); //content = CC
+    ptr_test_3+= 1;
 
+    for(int i = 0; i < 4; i++)
+         printf("\n%p", &ptr_test_3[i]);
+
+         /* 000000B4677FF8E0
+            000000B4677FF8E4
+            000000B4677FF8E8
+            000000B4677FF8EC
+            000000B4677FF8EC
+            aaccddee
+            000000B4677FF8E4 line 49 shift
+            000000B4677FF8E8
+            000000B4677FF8EC 
+            000000B4677FF8F0 here out of array's lenght  */
+
+    printf("\n%x", *(ptr_test_3 + 2)); //shift in content 0xAADDEECC
+    printf("\n%p", &ptr_test_3[2]); //shift in address: 000000B4677FF8EC   that contains 0xAADDEECC
 
     return 0;
 }
