@@ -2,7 +2,7 @@
 #define __strings_lib__
 
 
-extern void my_strcpy(char *str1, char *str2);
-extern void reverse_fixed_string(char *string);
+extern char *my_strcpy(char *dst, char *src);
+extern char *my_rev_string(char *string);
 
 #endif

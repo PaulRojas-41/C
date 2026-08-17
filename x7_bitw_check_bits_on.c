@@ -5,6 +5,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include "bitwise_lib.h"
+#include <stdbool.h>
 
 int main()
 {
@@ -12,6 +13,8 @@ int main()
     int counter = 0;
     int result;
 
+   
+ 
     printf("\nEnter the number:");
     scanf("%d",&num);
 

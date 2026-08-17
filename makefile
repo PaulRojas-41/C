@@ -3,11 +3,10 @@
 GCC_FLAGS = gcc -m64
 COMPILER_FLAGS = -Wall -g -Wextra
 OBJS +=\
-	x3_pointers.o \
-	strings_lib.o \
-	bitwise_lib.o
+	x5_test_stringlib.o \
+	strings_lib.o
 
-EXE = x3_pointers
+EXE = x5_test_stringlib
 INCLUDES = -I"C:\msys64\ucrt64\include"
 
 #linking phase of all the .c files to machine code done (put all together)
