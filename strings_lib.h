@@ -2,7 +2,7 @@
 #define __strings_lib__
 
 
-extern char *my_strcpy(char *dst, char *src);
-extern char *my_rev_string(char *string);
+extern char *my_strcpy(char *dst, const char *src);
+extern char *my_rev_string(const char *string);
 
 #endif

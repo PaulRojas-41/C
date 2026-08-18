@@ -2,7 +2,7 @@
 #include <string.h> 
 #include "strings_lib.h"
 
-char *my_strcpy(char *dst, char *src)
+char *my_strcpy(char *dst, const char *src)
 {
     int n = strlen(src);
     char *local_ptr = dst;
@@ -15,7 +15,7 @@ char *my_strcpy(char *dst, char *src)
     return local_ptr;
 }
 
-char *my_rev_string(char *string)
+char *my_rev_string(const char *string)
 {
     int s_len = strlen(string);
     char cpy[s_len];
